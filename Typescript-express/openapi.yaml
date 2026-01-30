@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: Generated API
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      tags:
+      - Index
+      summary: Health check
+      description: Check the health status of the application.
+      responses:
+        '200':
+          description: The service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+  /invoices:
+    post:
+      tags:
+      - Index
+      summary: Create Invoice
+      operationId: post_invoices
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+tags: []

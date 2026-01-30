@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: Generated API
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      tags:
+      - Routes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                required:
+                - status
+  /orders:
+    post:
+      operationId: create_order
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Routes
+tags: []

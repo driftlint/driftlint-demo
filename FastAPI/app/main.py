@@ -4,7 +4,6 @@ from .models import TicketCreate, TicketStore
 app = FastAPI(title="Support API")
 store = TicketStore()
 
-
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -28,3 +27,4 @@ def create_ticket(payload: TicketCreate):
         )
 
     return store.create_ticket(payload.subject, payload.priority)
+#Demo

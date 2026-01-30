@@ -1,0 +1,18 @@
+version: 1
+projects:
+  - name: "Flask Service"
+    source_dir: "FlaskAPI"
+    spec_file: "FlaskAPI/openapi.yaml"
+    language: "python"
+  - name: "FastAPI Service"
+    source_dir: "FastAPI"
+    spec_file: "FastAPI/openapi.yaml"
+    language: "python"
+  - name: "PHP Service"
+    source_dir: "PhP"
+    spec_file: "PhP/openapi.yaml"
+    language: "php"
+  - name: "TypeScript Express Service"
+    source_dir: "Typescript-express"
+    spec_file: "Typescript-express/openapi.yaml"
+    language: "typescript"

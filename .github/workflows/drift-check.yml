@@ -1,0 +1,26 @@
+name: API Drift Check
+
+on: [pull_request]
+
+permissions:
+  contents: write  # Required for pushing commits with GITHUB_TOKEN
+
+jobs:
+  driftlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # Use v4 for better ref handling
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}  # Handles PRs and pushes
+          fetch-depth: 0  # Needed for base/head diff in PRs
+
+      - name: Run DriftLinter
+        uses: driftlint/driftlint@0.0.4
+        with:
+          config: '.driftlinter.yml'
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Apply DriftLinter auto-fixes'
+          branch: ${{ github.head_ref || github.ref_name }}
